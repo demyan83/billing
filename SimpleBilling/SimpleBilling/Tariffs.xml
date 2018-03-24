@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Calculating call cost, given date and time for its start and end, number called, and subscriber account information.
+ Following payment plan is valid:
+o Fixed connection fee of $0.33 that is added to any call cost.
+o The minute fee is charged at the beginning of each minute, so if call duration is 1:03, two minutes cost should be paid.
+o Each subscriber has 30 minutes of free talking inside his operator network, valid for 30 days since the date when last credit was added.
+o After free minutes expire, calls inside home operator network are charged $0.50 per minute.
+o When calling numbers outside of the home network, the minute cost is $0.95.
+o On weekends, first five minutes of every call are free.
+ Home network of the operator is defined as a set of phone numbers starting with one of the given prefixes: 050, 066, 095, and 099.
+-->
+
+<Tariffs>
+    <Plan Name="Default" Plugin="Tariffs.Default">
+	      <Parameters FixedConnectionFee='0.33' ChargeUnitSeconds="60" InsideBonusMinutes="30"  InsideBonusPeriodDays="30" CostIn="0.50" CostOut="0.95" weekendCallBonusMinutes="5"/>
+    </Plan>
+</Tariffs>
