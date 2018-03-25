@@ -205,3 +205,20 @@ class BillingCalculator
 		}
 	}
 }
+
+		//// read date time from string
+		//std::istringstream ss(date_time);
+		//try
+		//{
+		//	//ss >> std::get_time(&mDateTime, "%Y-%m-%dT%H:%M:%S");
+		//}
+		//catch (...)
+		//{
+		//	// whatever may happen on parsing, we want only 1 type of exception out
+		//	throw std::out_of_range("1-String passed in DateTime doesn't represent datetime");
+		//}
+
+		//if (!isValid(mDateTime))
+		//{
+		//	throw std::out_of_range("2-String passed in DateTime doesn't represent datetime");
+		//}

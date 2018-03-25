@@ -3,7 +3,9 @@
 #include <string>
 
 #include "ISubscriberInfoProvider.h"
-
+/*
+	Concrete implementation. Loads Subscribers data from an XML file
+*/
 
 class SubscriberInfoProviderFileSys :
 	public ISubscriberInfoProvider
@@ -18,7 +20,7 @@ private:
 	void loadSubscribersFromFile(const std::string& file);
 
 private:
-	std::string mSourceFile;
+	std::string mSourceFileName;
 	std::map<Subscriber::SubscriberID, Subscriber> mSubscribers;
 };
 
