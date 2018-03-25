@@ -34,38 +34,44 @@ void SubscriberInfoProviderFileSys::loadSubscribersFromFile(const std::string& f
 	{
 		for (pugi::xml_node subscNode : doc.child("Subscribers").children("Subscriber"))
 		{
-			int id = 0;  
-			Subscriber sbscr;
-
-			for (pugi::xml_attribute attr : subscNode.attributes())
+			try
 			{
-				std::string atrname(attr.name());
-				for (auto &elem : atrname)
-					elem = std::tolower(elem);
+				int id = 0;
+				Subscriber sbscr;
 
-				if (atrname == "id")
-					id = attr.as_int();
-				else if (atrname == "lastpaymentdate")
-					sbscr.last_payment_date = DateTime(attr.as_string());
-				else if (atrname == "tarifname")
-					sbscr.tariff = attr.as_string();
-				else if (atrname == "phonenumber")
-					sbscr.phone_number = attr.as_string();
-				else if (atrname == "minutesused")
-					sbscr.minutes_after_last_payment = attr.as_int();
-				else if (atrname == "subscribername")
-					sbscr.subscriberName = attr.as_string();
-				
+				for (pugi::xml_attribute attr : subscNode.attributes())
+				{
+					std::string atrname(attr.name());
+					for (auto &elem : atrname)
+						elem = std::tolower(elem);
+
+					if (atrname == "id")
+						id = attr.as_int();
+					else if (atrname == "lastpaymentdate")
+						sbscr.last_payment_date = DateTime(attr.as_string());
+					else if (atrname == "tarifname")
+						sbscr.tariff = attr.as_string();
+					else if (atrname == "phonenumber")
+						sbscr.phone_number = attr.as_string();
+					else if (atrname == "minutesused")
+						sbscr.minutes_after_last_payment = attr.as_int();
+					else if (atrname == "subscribername")
+						sbscr.subscriberName = attr.as_string();
+
+				}
+				// add element into the storage
+				if (id)
+				{
+					if (subscribers.find(id) != subscribers.end())
+						throw std::exception("Duplicate entry in subscribers list");
+
+					subscribers[id] = sbscr;
+				}
 			}
-			// add element into the storage
-			if (id)
+			catch (std::exception& e)
 			{
-				if (subscribers.find(id) != subscribers.end())
-					throw std::exception("Duplicate entry in subscribers list");
-
-				subscribers[id] = sbscr;
+				std::cout << "Got an exception when Subscribers list" << e.what();
 			}
-				
 		}
 		mSubscribers.swap(subscribers);
 		std::cout << "    Loaded " << mSubscribers.size() << " subscribers" << std::endl;
