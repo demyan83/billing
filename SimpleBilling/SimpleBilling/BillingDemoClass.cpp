@@ -36,7 +36,7 @@ void BillingDemoClass::run()
 	}
 	std::string pause;
 	std::cout << "Finished";
-	std::cin >> pause;
+	std::getline(std::cin, pause);
 }
 
 ISubscriberInfoProviderPtr BillingDemoClass::getFSSubscriberInfoProviderPtr(const std::string& filename)
