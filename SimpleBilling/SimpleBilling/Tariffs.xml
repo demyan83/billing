@@ -13,5 +13,6 @@ o On weekends, first five minutes of every call are free.
 <Tariffs>
     <Plan Name="Default" Plugin="Tariffs.Default">
 	      <Parameters FixedConnectionFee='0.33' ChargeUnitSeconds="60" InsideBonusMinutes="30"  InsideBonusPeriodDays="30" CostIn="0.50" CostOut="0.95" weekendCallBonusMinutes="5"/>
+        <HomePrefixes>050,066,095,099</HomePrefixes>
     </Plan>
 </Tariffs>

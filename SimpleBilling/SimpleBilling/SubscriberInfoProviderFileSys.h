@@ -18,7 +18,7 @@ private:
 	void loadSubscribersFromFile(const std::string& file);
 
 private:
-	std::string mSourceFile;
+	std::string mSourceFileName;
 	std::map<Subscriber::SubscriberID, Subscriber> mSubscribers;
 };
 

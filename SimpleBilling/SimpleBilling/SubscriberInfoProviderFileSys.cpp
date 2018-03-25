@@ -2,9 +2,9 @@
 #include "SubscriberInfoProviderFileSys.h"
 
 
-SubscriberInfoProviderFileSys::SubscriberInfoProviderFileSys(const std::string& file) : mSourceFile(file)
+SubscriberInfoProviderFileSys::SubscriberInfoProviderFileSys(const std::string& file) : mSourceFileName(file)
 {
-	loadSubscribersFromFile(mSourceFile);
+	loadSubscribersFromFile(mSourceFileName);
 }
 
 Subscriber SubscriberInfoProviderFileSys::getSubscriberInfo(const Subscriber::SubscriberID& id)

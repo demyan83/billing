@@ -4,19 +4,22 @@
 #include <sstream>
 #include <exception>
 
+#include "DateTime.h"
+
 struct Subscriber
 {
 	using SubscriberID = unsigned int;
+	using TariffID = std::string;
 
 	void addUsedMinutes(unsigned short minutes)
 	{
 		minutes_after_last_payment += minutes;
 	}
 	
-	unsigned short minutes_after_last_payment;
-	time_t m_last_payment_date;
-	std::string phone_number;
-	std::string tariff;
+	unsigned short	minutes_after_last_payment;
+	DateTime		last_payment_date;
+	std::string		phone_number;
+	TariffID		tariff;
 };
 
 class ISubscriberInfoProvider
@@ -36,13 +39,13 @@ public:
 	{
 		std::ostringstream tmp;
 		tmp << "Subscriber with the given Id [" << id_passed << "] is not registered";
-		Msg_ = tmp.str();
+		msg_ = tmp.str();
 	}
 	virtual const char* what() const throw()
 	{
-		return Msg_.c_str();
+		return msg_.c_str();
 	}
 
 private:
-	std::string Msg_;
+	std::string msg_;
 };

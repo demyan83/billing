@@ -15,13 +15,14 @@ private:
 	inline bool isInternalCall(const std::string& num1, const std::string& num2)
 	{
 		// compare prefixes
+		//std::string prefix()
 		return num1.compare(0, 3, num2);
 	}
 
-	inline unsigned short getBonusMinutes(const Subscriber& subscriber_info, const time_t& start)
+	inline unsigned short getBonusMinutes(const Subscriber& subscriber_info, const DateTime& start)
 	{
 		unsigned short bonusMinsLeft = 0;
-		if (((subscriber_info.m_last_payment_date - start) < mInsideBonusPeriodDays) & (mInsideBonusMinutes > subscriber_info.minutes_after_last_payment))
+//		if (((subscriber_info.last_payment_date - start) < mInsideBonusPeriodDays) & (mInsideBonusMinutes > subscriber_info.minutes_after_last_payment))
 		{
 			bonusMinsLeft = mInsideBonusMinutes - subscriber_info.minutes_after_last_payment;
 		}

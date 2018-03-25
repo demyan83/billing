@@ -2,29 +2,20 @@
 #include <string>
 #include <ctime>
 
+#include "DateTime.h"
 #include "ISubscriberInfoProvider.h"
 
 class Call
 {
 public:
-	time_t getCallStart() const
+	DateTime getCallStart() const
 	{
 		return mCallStart;
 	}
 
-	time_t getCallEnd() const
+	DateTime getCallEnd() const
 	{
 		return mCallEnd;
-	}
-
-	unsigned int getCallDuration() const
-	{
-		return static_cast<unsigned int>(std::ceil(mCallEnd - mCallStart));
-	}
-	bool isWeekend() const
-	{
-		return false;
-		//return mCallStart.isWeekend();
 	}
 
 	Subscriber::SubscriberID getCallerId() const
@@ -36,9 +27,20 @@ public:
 	{
 		return mCalledNumber;
 	}
+
+	unsigned int getCallDuration() const
+	{
+		return static_cast<unsigned int>(DateTime::getDurationInMinutes(mCallEnd, mCallStart));
+	}
+
+	inline bool isStartedOnWeekend() const
+	{
+		return getCallStart().isWeekend();
+	}
+
 private:
-	time_t mCallStart;
-	time_t mCallEnd;
+	DateTime mCallStart;
+	DateTime mCallEnd;
 	std::string mCalledNumber;
 	Subscriber::SubscriberID mSubscriberId;
 };

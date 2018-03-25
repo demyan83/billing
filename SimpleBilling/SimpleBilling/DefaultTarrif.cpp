@@ -16,7 +16,7 @@ double DefaultTarrif::calculate(const Call& call, const Subscriber& subscriber_i
 		cost += mFixedConnectionFee;
 	}
 
-	if (call.isWeekend())
+	if (call.isStartedOnWeekend())
 	{
 		// it is weekend, and call lasted less than free period
 		callDurationToPrice -= mWeekendCallBonusMinutes;
