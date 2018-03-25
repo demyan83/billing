@@ -147,17 +147,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BilingStrategyFactory.h" />
     <ClInclude Include="DateTime.h" />
-    <ClInclude Include="DefaultTarrif.h" />
-    <ClInclude Include="IBillingStrategy.h" />
+    <ClInclude Include="DefaultTarrifCalculator.h" />
+    <ClInclude Include="IBillingCalculator.h" />
+    <ClInclude Include="PugiXML\pugiconfig.hpp" />
+    <ClInclude Include="PugiXML\pugixml.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="ISubscriberInfoProvider.h" />
     <ClInclude Include="SubscriberInfoProviderFileSys.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DefaultTarrif.cpp" />
-    <ClCompile Include="IBillingStrategy.cpp" />
+    <ClCompile Include="DateTime.cpp" />
+    <ClCompile Include="DefaultTarrifCalculator.cpp" />
+    <ClCompile Include="PugiXML\pugixml.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="SimpleBilling.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

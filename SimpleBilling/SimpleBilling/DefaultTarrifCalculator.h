@@ -1,28 +1,32 @@
 #pragma once
-#include "IBillingStrategy.h"
-#include <ctime>
 
-class DefaultTarrif :
-	public IBillingStrategy
+#include <ctime>
+#include <set>
+
+#include "IBillingCalculator.h"
+#include "PugiXML\pugixml.hpp"
+
+class DefaultTarrifCalculator :
+	public IBillingCalculator
 {
 public:
-	DefaultTarrif();
-	virtual ~DefaultTarrif() {};
+	explicit DefaultTarrifCalculator(const pugi::xml_node& config);
+	virtual ~DefaultTarrifCalculator() {};
 
 	virtual double calculate(const Call& call, const Subscriber& subscriber);
 
 private:
-	inline bool isInternalCall(const std::string& num1, const std::string& num2)
+	inline bool isInternalCall(const std::string& numCalled)
 	{
 		// compare prefixes
-		//std::string prefix()
-		return num1.compare(0, 3, num2);
+		std::string prefix(numCalled, 0, 3);
+		return mHomePrefixes.find(prefix) != mHomePrefixes.end();
 	}
 
 	inline unsigned short getBonusMinutes(const Subscriber& subscriber_info, const DateTime& start)
 	{
 		unsigned short bonusMinsLeft = 0;
-//		if (((subscriber_info.last_payment_date - start) < mInsideBonusPeriodDays) & (mInsideBonusMinutes > subscriber_info.minutes_after_last_payment))
+		if (((DateTime::getDurationInDays(subscriber_info.last_payment_date, start)) < mInsideBonusPeriodDays) & (mInsideBonusMinutes > subscriber_info.minutes_after_last_payment))
 		{
 			bonusMinsLeft = mInsideBonusMinutes - subscriber_info.minutes_after_last_payment;
 		}
@@ -38,5 +42,7 @@ private:
 	unsigned short	mChargeUnitInSeconds;
 	unsigned short	mInsideBonusMinutes;
 	unsigned short	mInsideBonusPeriodDays;
+
+	std::set<std::string> mHomePrefixes;
 };
 

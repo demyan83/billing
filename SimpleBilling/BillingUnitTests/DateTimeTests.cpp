@@ -4,7 +4,9 @@
 #include <string>
 #include <vector>
 
-#include "../SimpleBilling/DateTime.h"
+#include "DateTime.h"
+#include "DateTime.cpp"
+
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -53,23 +55,23 @@ namespace BillingUnitTests
 				// 25 sec
 				DateTime dt("2018-03-24T12:34:15");
 				DateTime dtPlus25("2018-03-24T12:34:40");
-				Assert::AreEqual(DateTime::getDurationInSeconds(dt, dtPlus25), 25, 0);
-				Assert::AreEqual(DateTime::getDurationInMinutes(dt, dtPlus25), 1, 0);
+				Assert::AreEqual(DateTime::getDurationInSecondsAbs(dt, dtPlus25), 25, 0);
+				Assert::AreEqual(DateTime::getDurationInMinutesAbs(dt, dtPlus25), 1, 0);
 			}
 			{
 				// 15 mins + 40 sec
 				DateTime dt("2018-03-24T23:55:00");
 				DateTime dt2("2018-03-25T00:10:40");
-				Assert::AreEqual(DateTime::getDurationInSeconds(dt, dt2), 940, 0);
-				Assert::AreEqual(DateTime::getDurationInMinutes(dt, dt2), 16, 0);
+				Assert::AreEqual(DateTime::getDurationInSecondsAbs(dt, dt2), 940, 0);
+				Assert::AreEqual(DateTime::getDurationInMinutesAbs(dt, dt2), 16, 0);
 			}
 
 			{
 				// 1 day + 2 h + 10 m + 40 sec = 
 				DateTime dt("2018-03-23T20:10:00");
 				DateTime dt2("2018-03-24T22:20:40");
-				Assert::AreEqual(DateTime::getDurationInSeconds(dt, dt2), 94240, 0);
-				Assert::AreEqual(DateTime::getDurationInMinutes(dt, dt2), 1571, 0);
+				Assert::AreEqual(DateTime::getDurationInSecondsAbs(dt, dt2), 94240, 0);
+				Assert::AreEqual(DateTime::getDurationInMinutesAbs(dt, dt2), 1571, 0);
 			}
 
 		}

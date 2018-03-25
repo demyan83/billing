@@ -3,6 +3,7 @@
 #include <string>
 #include <sstream>
 #include <exception>
+#include <memory>
 
 #include "DateTime.h"
 
@@ -30,7 +31,7 @@ public:
 
 	virtual Subscriber getSubscriberInfo(const Subscriber::SubscriberID& id) = 0;
 };
-
+using ISubscriberInfoProviderPtr = std::shared_ptr<ISubscriberInfoProvider>;
 
 class UnknownCaller : public std::exception
 {

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Calls>
+	<Call SubscriberId='1' calledNumber='0991111111' callStart='2018-02-18T12:30:50' callEnd='2018-02-18T12:30:55'/>
+	<Call SubscriberId='1' calledNumber='0501111111' callStart='2018-02-21T12:30:50' callEnd='2018-02-21T12:31:52'/>
+	<Call SubscriberId='2' calledNumber='0991111111' callStart='2018-02-22T12:30:50' callEnd='2018-02-22T12:40:50'/>
+	<Call SubscriberId='3' calledNumber='0661111111' callStart='2018-02-23T12:30:50' callEnd='2018-02-23T12:55:50'/>
+	<Call SubscriberId='4' calledNumber='0501111111' callStart='2018-02-25T12:30:50' callEnd='2018-02-25T12:31:50'/>
+	<Call SubscriberId='5' calledNumber='0502222222' callStart='2018-03-18T12:30:50' callEnd='2018-03-18T12:36:50'/>
+	<Call SubscriberId='6' calledNumber='0503333333' callStart='2018-03-17T12:30:50' callEnd='2018-03-17T13:35:50'/>
+	<Call SubscriberId='7' calledNumber='0952222222' callStart='2018-04-18T12:30:50' callEnd='2018-04-18T12:32:50'/>
+	
+	<!-- calls to the external networks -->
+	<Call SubscriberId='1' calledNumber='5555555555' callStart='2018-02-21T12:30:50' callEnd='2018-02-21T12:31:52'/>
+	<Call SubscriberId='4' calledNumber='9999999999' callStart='2018-02-25T12:30:50' callEnd='2018-02-25T12:31:50'/>
+</Calls>

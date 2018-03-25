@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\PugiXML">
+      <UniqueIdentifier>{1e505e11-62e1-488e-abd4-c390ef6a2da0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -27,13 +30,22 @@
     <ClInclude Include="SubscriberInfoProviderFileSys.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IBillingStrategy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DefaultTarrif.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DateTime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PugiXML\pugiconfig.hpp">
+      <Filter>Source Files\PugiXML</Filter>
+    </ClInclude>
+    <ClInclude Include="PugiXML\pugixml.hpp">
+      <Filter>Source Files\PugiXML</Filter>
+    </ClInclude>
+    <ClInclude Include="BilingStrategyFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IBillingCalculator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultTarrifCalculator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,10 +62,13 @@
     <ClCompile Include="ISubscriberInfoProvider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IBillingStrategy.cpp">
+    <ClCompile Include="PugiXML\pugixml.cpp">
+      <Filter>Source Files\PugiXML</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultTarrifCalculator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DefaultTarrif.cpp">
+    <ClCompile Include="DateTime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
