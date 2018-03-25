@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Tariffs>
-    <Plan Name="Default">
+    <Plan Name="Default" Plugin="Default">
 	    <Parameters FixedConnectionFee='0.33' ChargeUnitSeconds="60" InsideBonusMinutes="30"  InsideBonusPeriodDays="30" CostIn="0.50" CostOut="0.95" weekendCallBonusMinutes="5">
-		<HomePrefixes>
-			<HomePrefix>050</HomePrefix>
-			<HomePrefix>066</HomePrefix>
-			<HomePrefix>095</HomePrefix>
-			<HomePrefix>099</HomePrefix>
-		</HomePrefixes>
+			<HomePrefixes>
+				<HomePrefix>050</HomePrefix>
+				<HomePrefix>066</HomePrefix>
+				<HomePrefix>095</HomePrefix>
+				<HomePrefix>099</HomePrefix>
+			</HomePrefixes>
+		</Parameters>
+    </Plan>
+	
+	<!-- Below uses same class as calculator, but with ZERO tariffs -->
+	<Plan Name="DefaultAllFree" Plugin="Default" >
+	    <Parameters FixedConnectionFee='0.0' ChargeUnitSeconds="0" InsideBonusMinutes="0"  InsideBonusPeriodDays="0" CostIn="0.0" CostOut="0.0" weekendCallBonusMinutes="0">
+			<HomePrefixes>
+				<HomePrefix>050</HomePrefix>
+				<HomePrefix>066</HomePrefix>
+				<HomePrefix>095</HomePrefix>
+				<HomePrefix>099</HomePrefix>
+			</HomePrefixes>
 		</Parameters>
     </Plan>
 </Tariffs>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Subscribers>
-    <Subscriber Id='1' TarifName="Default" LastPaymentDate='2018-03-18T12:30:50' PhoneNumber='0501234567' minutesUsed='25'/>
-	<Subscriber Id='2' TarifName="Default" LastPaymentDate='2018-02-18T12:30:50' PhoneNumber='0991234567' minutesUsed='0'/>
-	<Subscriber Id='3' TarifName="Default" LastPaymentDate='2018-03-25T12:30:50' PhoneNumber='0661234567' minutesUsed='15'/>
-	<Subscriber Id='4' TarifName="Default" LastPaymentDate='2018-03-18T12:30:50' PhoneNumber='0501234568' minutesUsed='100'/>
-	<Subscriber Id='5' TarifName="Default" LastPaymentDate='2018-03-18T12:30:50' PhoneNumber='0501234569' minutesUsed='25'/>
-	<Subscriber Id='6' TarifName="Default" LastPaymentDate='2018-03-18T12:30:50' PhoneNumber='0501234510' minutesUsed='25'/>
-	<Subscriber Id='7' TarifName="Default" LastPaymentDate='2018-03-18T12:30:50' PhoneNumber='0951234587' minutesUsed='25'/>
+    <Subscriber Id='1' subscriberName= "MisterOne" TarifName="Default" LastPaymentDate='2018-03-18T12:30:50' PhoneNumber='0501234567' minutesUsed='25'/>
+	<Subscriber Id='2' subscriberName= "MisterTwo" TarifName="Default" LastPaymentDate='2018-02-18T12:30:50' PhoneNumber='0991234567' minutesUsed='0'/>
+	<Subscriber Id='3' subscriberName= "MissThree" TarifName="Default" LastPaymentDate='2018-03-25T12:30:50' PhoneNumber='0661234567' minutesUsed='15'/>
+	<Subscriber Id='4' subscriberName= "MisterFour" TarifName="Default" LastPaymentDate='2018-03-18T12:30:50' PhoneNumber='0501234568' minutesUsed='100'/>
+	<Subscriber Id='5' subscriberName= "MisterFive" TarifName="Default" LastPaymentDate='2018-03-18T12:30:50' PhoneNumber='0501234569' minutesUsed='25'/>
+	<Subscriber Id='6' subscriberName= "MissSix" TarifName="Default" LastPaymentDate='2018-03-18T12:30:50' PhoneNumber='0501234510' minutesUsed='25'/>
+	<Subscriber Id='7' subscriberName= "MissSeven" TarifName="Default" LastPaymentDate='2018-03-18T12:30:50' PhoneNumber='0951234587' minutesUsed='25'/>
+	<Subscriber Id='100' subscriberName= "Miss100" TarifName="DefaultAllFree" LastPaymentDate='2018-03-18T12:30:50' PhoneNumber='0951234587' minutesUsed='25'/>
 </Subscribers>

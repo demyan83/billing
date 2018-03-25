@@ -39,13 +39,19 @@
     <ClInclude Include="PugiXML\pugixml.hpp">
       <Filter>Source Files\PugiXML</Filter>
     </ClInclude>
-    <ClInclude Include="BilingStrategyFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="IBillingCalculator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DefaultTarrifCalculator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Call.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BillingDemoClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Factories.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -59,9 +65,6 @@
     <ClCompile Include="SubscriberInfoProviderFileSys.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ISubscriberInfoProvider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PugiXML\pugixml.cpp">
       <Filter>Source Files\PugiXML</Filter>
     </ClCompile>
@@ -69,6 +72,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DateTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BillingDemoClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Factories.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

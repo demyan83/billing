@@ -3,6 +3,7 @@
 #include <string>
 
 #include "DateTime.h"
+
 DateTime::DateTime(const std::string& date_time) : mDateTime{ 0 }
 {
 	std::tm dateTime_t;
@@ -44,12 +45,14 @@ double DateTime::getDurationInSecondsAbs(const DateTime& date_time, const DateTi
 {
 	return std::abs(difftime(date_time.mDateTime_t, date_time1.mDateTime_t));
 }
+
 double DateTime::getDurationInMinutesAbs(const DateTime& date_time, const DateTime& date_time1)
 {
 	double res = getDurationInSecondsAbs(date_time, date_time1);
 
 	return std::ceil(res / 60);
 }
+
 unsigned short DateTime::getDurationInDays(const DateTime& date_time, const DateTime& date_time1)
 {
 	double res = getDurationInSecondsAbs(date_time, date_time1);

@@ -147,7 +147,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BilingStrategyFactory.h" />
+    <ClInclude Include="Factories.h" />
+    <ClInclude Include="BillingDemoClass.h" />
+    <ClInclude Include="Call.h" />
     <ClInclude Include="DateTime.h" />
     <ClInclude Include="DefaultTarrifCalculator.h" />
     <ClInclude Include="IBillingCalculator.h" />
@@ -159,6 +161,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Factories.cpp" />
+    <ClCompile Include="BillingDemoClass.cpp" />
     <ClCompile Include="DateTime.cpp" />
     <ClCompile Include="DefaultTarrifCalculator.cpp" />
     <ClCompile Include="PugiXML\pugixml.cpp">
@@ -171,7 +175,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="ISubscriberInfoProvider.cpp" />
     <ClCompile Include="SubscriberInfoProviderFileSys.cpp" />
   </ItemGroup>
   <ItemGroup>

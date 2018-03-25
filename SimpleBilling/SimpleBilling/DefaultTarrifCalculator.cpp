@@ -42,6 +42,8 @@ double DefaultTarrifCalculator::calculate(const Call& call, const Subscriber& su
 {
 	int callDurationToPrice = call.getCallDuration();
 
+	std::cout << "		Call duration is " << callDurationToPrice << std::endl;
+
 	double cost = 0;
 	{
 		// unconditional charges
@@ -50,15 +52,24 @@ double DefaultTarrifCalculator::calculate(const Call& call, const Subscriber& su
 
 	if (call.isStartedOnWeekend())
 	{
-		// it is weekend, and call lasted less than free period
+		std::cout << "		Call took place on weekend" << std::endl;
 		callDurationToPrice -= mWeekendCallBonusMinutes;
 		if (callDurationToPrice < 0)
+		{
+			std::cout <<"		Weekend bonus is "<< mWeekendCallBonusMinutes << ". Charge connection fee only" << std::endl;
+			// it is weekend, and call lasted less than free period
 			return cost;
+		}
+		else
+		{
+			std::cout << "		Subsctract weekend bonus from total time. Now it is " << callDurationToPrice << std::endl;
+		}
 	}
 	
 	bool isInternal = isInternalCall(call.getCalledNumber());
 	if (isInternal)
 	{
+		std::cout << "		Call to internal number" << std::endl;
 		// call to the internal network, check if we have bonus minutes to use
 		unsigned short bonusMinutes = getBonusMinutes(subscriber_info, call.getCallStart());
 
@@ -66,17 +77,29 @@ double DefaultTarrifCalculator::calculate(const Call& call, const Subscriber& su
 		//subscriber_info.addUsedMinutes(callDurationToPrice);
 		if (bonusMinutes)
 		{
+			std::cout << "		Subscriber has " << bonusMinutes << " free talking bonus minutes to use" << std::endl;
 			if (bonusMinutes >= callDurationToPrice)
 			{
+				std::cout << "		Bonus minutes used. Charge connection fee only" << std::endl;
 				return cost;
 			}
 			else
 			{
 				callDurationToPrice -= bonusMinutes;
+				std::cout << "		Use bonus minutes. Minutes left to price are " << callDurationToPrice << std::endl;
 			}
 		}
+		else
+		{
+			std::cout << "		Subscriber has NO free talking bonus minutes to use" << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << "		Call to external number" << std::endl;
 	}
 
+	std::cout << "		Minutes to price " << callDurationToPrice << std::endl;
 	// now we know how many minutes must be charged
 	cost += callDurationToPrice * (isInternal ? mCostIn : mCostOut);
 

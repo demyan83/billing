@@ -12,4 +12,7 @@
 	<!-- calls to the external networks -->
 	<Call SubscriberId='1' calledNumber='5555555555' callStart='2018-02-21T12:30:50' callEnd='2018-02-21T12:31:52'/>
 	<Call SubscriberId='4' calledNumber='9999999999' callStart='2018-02-25T12:30:50' callEnd='2018-02-25T12:31:50'/>
+	
+	<!-- uses AllFree tarrif -->
+	<Call SubscriberId='100' calledNumber='0991111111' callStart='2018-02-18T12:30:50' callEnd='2018-02-18T12:30:55'/>
 </Calls>

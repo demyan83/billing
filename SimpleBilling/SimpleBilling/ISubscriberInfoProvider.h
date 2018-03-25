@@ -6,7 +6,9 @@
 #include <memory>
 
 #include "DateTime.h"
-
+/*
+	Struct represents information about subscriber
+*/
 struct Subscriber
 {
 	using SubscriberID = unsigned int;
@@ -21,13 +23,17 @@ struct Subscriber
 	DateTime		last_payment_date;
 	std::string		phone_number;
 	TariffID		tariff;
+	std::string		subscriberName;
 };
 
+/*
+Base interface for Subscriber Info Providers
+*/
 class ISubscriberInfoProvider
 {
 public:
-	ISubscriberInfoProvider();
-	virtual ~ISubscriberInfoProvider();
+	ISubscriberInfoProvider() {}
+	virtual ~ISubscriberInfoProvider() {}
 
 	virtual Subscriber getSubscriberInfo(const Subscriber::SubscriberID& id) = 0;
 };

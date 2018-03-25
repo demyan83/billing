@@ -3,7 +3,9 @@
 #include <string>
 
 #include "ISubscriberInfoProvider.h"
-
+/*
+	Concrete implementation. Loads Subscribers data from an XML file
+*/
 
 class SubscriberInfoProviderFileSys :
 	public ISubscriberInfoProvider

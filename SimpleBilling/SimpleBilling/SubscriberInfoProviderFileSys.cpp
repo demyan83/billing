@@ -24,6 +24,8 @@ Subscriber SubscriberInfoProviderFileSys::getSubscriberInfo(const Subscriber::Su
 
 void SubscriberInfoProviderFileSys::loadSubscribersFromFile(const std::string& filename)
 {
+	std::cout << "Loading subscribers list from " << filename << std::endl;
+
 	std::map<Subscriber::SubscriberID, Subscriber> subscribers;
 
 	pugi::xml_document doc;
@@ -51,6 +53,9 @@ void SubscriberInfoProviderFileSys::loadSubscribersFromFile(const std::string& f
 					sbscr.phone_number = attr.as_string();
 				else if (atrname == "minutesused")
 					sbscr.minutes_after_last_payment = attr.as_int();
+				else if (atrname == "subscribername")
+					sbscr.subscriberName = attr.as_string();
+				
 			}
 			// add element into the storage
 			if (id)
@@ -63,5 +68,6 @@ void SubscriberInfoProviderFileSys::loadSubscribersFromFile(const std::string& f
 				
 		}
 		mSubscribers.swap(subscribers);
+		std::cout << "    Loaded " << mSubscribers.size() << " subscribers" << std::endl;
 	}
 }
