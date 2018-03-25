@@ -29,9 +29,11 @@ void BillingDemoClass::run()
 
 			std::cout << "	End: Call cost for \"" << sbcr.subscriberName << "\" has been calculated: " << result << std::endl << std::endl;
 		}
-		catch (UnknownCaller& e)
+		catch (std::exception& e)
 		{
-			std::cout << e.what();
+			std::cout << e.what() << std::endl;
+			std::cout << "Couldn't calculate cost due to thr error above. " << std::endl;
+			std::cout << "	End: Call" << std::endl;
 		}
 	}
 	std::string pause;
@@ -79,26 +81,33 @@ std::vector<Call> BillingDemoClass::populateCalls(const std::string& filename)
 	{
 		for (pugi::xml_node subscNode : doc.child("Calls").children("Call"))
 		{
-			Call onecall;
-			std::string callstart, callend;
-
-			for (pugi::xml_attribute attr : subscNode.attributes())
+			try
 			{
-				std::string atrname(attr.name());
-				for (auto &elem : atrname)
-					elem = std::tolower(elem);
+				Call onecall;
+				std::string callstart, callend;
 
-				if (atrname == "subscriberid")
-					onecall.setSubscriberId(attr.as_int());
-				else if (atrname == "callednumber")
-					onecall.setCalledNumber(attr.as_string());
-				else if (atrname == "callstart")
-					callstart = attr.as_string();
-				else if (atrname == "callend")
-					callend = attr.as_string();
+				for (pugi::xml_attribute attr : subscNode.attributes())
+				{
+					std::string atrname(attr.name());
+					for (auto &elem : atrname)
+						elem = std::tolower(elem);
+
+					if (atrname == "subscriberid")
+						onecall.setSubscriberId(attr.as_int());
+					else if (atrname == "callednumber")
+						onecall.setCalledNumber(attr.as_string());
+					else if (atrname == "callstart")
+						callstart = attr.as_string();
+					else if (atrname == "callend")
+						callend = attr.as_string();
+				}
+				onecall.setCallStartEnd(callstart, callend);
+				calls.push_back(onecall);
 			}
-			onecall.setCallStartEnd(callstart, callend);
-			calls.push_back(onecall);
+			catch (std::exception& e)
+			{
+				std::cout << "Got an exception when pasring call list" << e.what();
+			}
 		}
 	}
 	std::cout << "    Loaded " << calls.size() << std::endl;
