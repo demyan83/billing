@@ -1,5 +1,0 @@
-<BillingPlans>
-<Plan Name="Default" Plugin="Plans.Default">
-	<Config FixedConnectionFee='0.33' ChargeUnitSeconds="60" InsideBonusMinutes="30"  InsideBonusPeriodDays="30" CostIn="0.50" CostOut="0.95" weekendCallBonusMinutes="5"/>
-</Plan>
-</BillingPlans>
